@@ -29,14 +29,14 @@
 
       @foreach ($bukus as $buku)
         <tr>
-          <td><b>{{++$i}}.</b></td>
+          <td><b>{{$buku->id}}</b></td>
           <td>{{$buku->judul}}</td>
           <td>{{$buku->penerbit}}</td>
           <td>{{$buku->tahun_terbit}}</td>
           <td>{{$buku->pengarang}}</td>
           <td>
             <form action="{{ route('buku.destroy', $buku->id) }}" method="post">
-              <a class="btn btn-sm btn-success" href="{{route('buku.show', $buku->id)}}">Show</a>
+            <a class="btn btn-sm btn-warning" href="{{route('buku.edit', $buku->id)}}">View</a>
               <a class="btn btn-sm btn-warning" href="{{route('buku.edit', $buku->id)}}">Edit</a>
               @csrf
               @method('DELETE')
@@ -46,8 +46,6 @@
         </tr>
       @endforeach
     </table>
-
-    {!! $bukus->links() !!}
 
   </div>
 

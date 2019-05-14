@@ -48,10 +48,10 @@ class BukuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-      $buku = Buku::find($id);
-      return view ('buku.detail', compact('buku'));
+      $buku = Buku::all();
+      return view ('buku.index', compact('buku'));
     }
     /**
      * Show the form for editing the specified resource.
